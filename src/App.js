@@ -37,10 +37,20 @@ class App extends React.Component {
         country: data.sys.country,
         pressure: data.main.pressure,
         sunset: sunset_date,
-        error: ''
+        error: undefined
       });
     }
+    else {
+      this.setState({
+        temp: undefined,
+        city: undefined,
+        country: undefined,
+        pressure: undefined,
+        sunset: undefined,
+        error: "Введите название города"
+      });
     }
+  }
 
   render() {
     return(
@@ -53,7 +63,7 @@ class App extends React.Component {
         country={this.state.country}
         pressure={this.state.pressure}
         sunset={this.state.sunset}
-        error={this.error}
+        error={this.state.error}
         />
       </div>
     );
